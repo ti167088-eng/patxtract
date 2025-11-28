@@ -1,0 +1,28 @@
+{
+  "model": "qwen-2.5-7b-instruct",
+  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "extraction_date": "",
+  "response": {
+    "patient": {
+      "full_name": "Dennis J Roller",
+      "first_name": "Dennis J",
+      "middle_name": "",
+      "last_name": "Roller",
+      "dob": "09/03/1957",
+      "address_full": "55 Primrose Ave\n410 Lakeville Rd Suite #200",
+      "city": "New Hyde Park",
+      "state": "NY",
+      "country": "",
+      "postal_code": "11042",
+      "state_code": "NY",
+      "phone": "516-354-9248",
+      "mobile_landline": "516-708-2520",
+      "email": "",
+      "fax": "516-708-2585",
+      "account_number": ""
+    },
+    "doctor": {
+      "npi": "1396809117"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "model": "Meta_Llama_3.1_8B_Instruct",
+  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "extraction_date": "",
+  "response": {
+    "patient": {
+      "full_name": "Dennis J Roller",
+      "first_name": "Dennis J",
+      "middle_name": "",
+      "last_name": "Roller",
+      "dob": "09/03/1957",
+      "address_full": "55 Primrose Ave, 410 Lakeville Rd Suite #200",
+      "city": "Floral Park, New Hyde Park",
+      "state": "NY",
+      "country": "",
+      "postal_code": "11001, 11042",
+      "state_code": "NY",
+      "phone": "5163549248",
+      "mobile_landline": "5167082520",
+      "email": "",
+      "fax": "5167082585",
+      "account_number": ""
+    },
+    "doctor": {
+      "npi": "1396809117"
+    }
+  }
+}

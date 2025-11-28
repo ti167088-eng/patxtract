@@ -1,0 +1,28 @@
+{
+  "model": "Mistral_7B_Instruct",
+  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "extraction_date": "",
+  "response": {
+    "patient": {
+      "full_name": "Dennis J Roller",
+      "first_name": "Dennis",
+      "middle_name": "J",
+      "last_name": "Roller",
+      "dob": "09/03/1957",
+      "address_full": "55 Primrose Ave",
+      "city": "Floral Park",
+      "state": "New York",
+      "country": "United States",
+      "postal_code": "11001",
+      "state_code": "NY",
+      "phone": "516-354-9248",
+      "mobile_landline": "516-708-2520",
+      "email": "",
+      "fax": "516-708-2585",
+      "account_number": "4QD1UD0VV97"
+    },
+    "doctor": {
+      "npi": "1396809117"
+    }
+  }
+}

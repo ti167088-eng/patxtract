@@ -1,0 +1,25 @@
+{
+  "extraction_info": {
+    "pdf_path": "C:\\Users\\pc\\Downloads\\1758735511_RX.pdf",
+    "pdf_name": "1758735511_RX.pdf",
+    "extraction_timestamp": "2025-11-25T15:00:59.165256",
+    "extraction_method": "ocr",
+    "total_pages": 1,
+    "total_characters": 1067,
+    "overall_confidence": 98.83442711830139,
+    "processing_time": 6.412044048309326,
+    "successful_pages": 1,
+    "extraction_success_rate": 1.0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Durable Medical Equipment Order\n08/10/2025\nPrescriber\nSupplier\nMOHAMMED ALDALALI, PA\nDELTA MEDICAL EQUIPMENT\nDEARBORN OFFICE\n13530 MICHIGAN AVE STE 270\n9550 DIX AVE.\nDEARBORN, MI 48126\nDEARBORN, MI 48120-1529\nPhone: (313) 395-2860\nPhone: (313) 843-6375\nFax: (313) 395-2861\nFax:(313)843-4590\nPatient Information\nPatient Name\nHUSSEIN-MUTHANNA, ALI A\nSex - DOB - Age\nM 09/27/1974 50yo\nAddress\n5711 LAWNDALE ST\nDETROIT, MI 48210-1869\nPhone\nH: (313) 290-4365\nPrimary Insurance\nUnited Healthcare Community Plan-MI (Medicaid Replacement - HMO)\nID0031697226\nGroup: MIPHCP\nPolicy Holder: MUTHANNA, ALI A\nSecondary Insurance\nNone recorded.\nDME Order Information\nApplicable Diagnoses\nDiabetic hypoglycemia\nICD-10: E11.649: Type 2 diabetes mellitus with hypoglycemia without coma\nSupply\nFREESTYLE LIBRE 3 READER\nQuantity\n1\nSIG\nUse as directed.\nRefills Allowed\nDAW?\nN\nNote to Supplier\nElectronically Signed by: MOHAMMED ALDALALI, PA\n08/10/2025\nElectronically ordered/documented by: MOHAMMED ALDALALI, PA\nPrescription is void if more than one (1) prescription is written per blank.",
+      "text_length": 1067,
+      "confidence": 98.83442711830139,
+      "processing_time": 6.215228080749512,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_i99wgh75\\page_0001.png",
+      "success": true
+    }
+  ]
+}

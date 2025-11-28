@@ -1,0 +1,143 @@
+{
+  "file_path": "C:\\Users\\pc\\Desktop\\data\\patient wise pdf\\Ali Haider -20250917T091038Z-1-002\\Ali Haider\\Medical Records\\Alphonso_ Faulkner\\Alphonso Faulkner DO (1).pdf",
+  "file_name": "Alphonso Faulkner DO (1).pdf",
+  "file_size": 223371,
+  "comparison_timestamp": 1764049893.9312863,
+  "analysis": {
+    "file_path": "C:\\Users\\pc\\Desktop\\data\\patient wise pdf\\Ali Haider -20250917T091038Z-1-002\\Ali Haider\\Medical Records\\Alphonso_ Faulkner\\Alphonso Faulkner DO (1).pdf",
+    "file_size": 223371,
+    "pages": [
+      {
+        "page_number": 1,
+        "has_text": false,
+        "text_length": 0,
+        "text_sample": "",
+        "image_count": 1,
+        "has_images": true
+      },
+      {
+        "page_number": 2,
+        "has_text": false,
+        "text_length": 0,
+        "text_sample": "",
+        "image_count": 1,
+        "has_images": true
+      }
+    ],
+    "has_selectable_text": false,
+    "recommended_method": "ocr",
+    "confidence": 0.8,
+    "reason": "Document appears to be image-based, OCR required",
+    "total_pages": 2
+  },
+  "methods": {
+    "scanned": {
+      "success": true,
+      "processing_time": 0.0009560585021972656,
+      "total_characters": 0,
+      "total_pages": 2,
+      "confidence": 0,
+      "errors": [],
+      "pages": [
+        {
+          "page_number": 1,
+          "success": false,
+          "text": "",
+          "text_length": 0,
+          "text_blocks": [],
+          "font_info": [],
+          "images": [],
+          "errors": [
+            "No selectable text found on page"
+          ]
+        },
+        {
+          "page_number": 2,
+          "success": false,
+          "text": "",
+          "text_length": 0,
+          "text_blocks": [],
+          "font_info": [],
+          "images": [],
+          "errors": [
+            "No selectable text found on page"
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "success": true,
+      "processing_time": 32.44183039665222,
+      "total_characters": 3442,
+      "total_pages": 2,
+      "confidence": 0,
+      "errors": [],
+      "pages": [
+        {
+          "page_number": 1,
+          "success": true,
+          "text": "Doctor Name: Dr. Julius Ajayi, MD\nAddress:\n2930 Horizon Park Dr Ste B\nSuwanee, GA 30024\nNPI:\n1013189364\nDME Medical Record Report\nConsidered Medically Necessary for home treatment.\nAll questions contained in this questionnaire are strictly confidential and will become part of your medical record.\nName: Alphonso Faulkner\nOF 0m\nDOB: 08/29/1942\nOrdering Physician: Dr. Julius Ajayi, MD\nDiagnosis: M23.51, M23.52\nPrescribing the following DME equipment for home use\nBack Brace (L0650)\nHip Brace (L1690)\nKnee Brace (L1851)\n4\nAnkle Brace (L1971)\nShoulder Brace (L3960)\nElbow Brace (L3761)\nWrist Brace (L3916)\nPrimary Use of NMES\nPain Reduction\nReduction in swelling\nor other modalities:\nPlease circle all that\nIncrease in activity\nImproved Mascle movement\napply.\nReduction in prescription pain medication\nI recommend the purchase the equipment prescribed.\nManipulation Improvement 0-10 \nPre or Post Surgery Y or N (Circe On)\nMedical History &\nPrevious treatments,\nMusculoskeletal Rehabilitation O-10____\nplease score:\nTENS/EMS Trial Yes\nHeat/Ice Treatment O-10__\nElevation 0-10\nMedication Tried and Failed: over the counter pain\nBed Rest O-10\nmeds:\nPlease note additional treatment or medical reasons you are prescribing off-the-shelf Orthotic Brace(s).\n7/29/24\nUht\nDoctors Signature:\nDate:",
+          "text_length": 1286,
+          "confidence": 95.3938707113266,
+          "processing_time": 15.655702590942383,
+          "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr__0r5h504\\page_0001.png"
+        },
+        {
+          "page_number": 2,
+          "success": true,
+          "text": "P ERRSS\nPlease Send RX Form & Pertinent Chart Notes FAX TO: 709 - 704 - 3065\nPLEASE SEND THIS FORM BACK IN 3 BUSINESS DAYS\nDate: 07/29/2024\nFirst: Alphonso\nLast: Faulkner\nPhysician Name: Dr. Julius Ajayi, MD\nDOB: 8/29/1942\nNPI: 1013189364\nAddre$s: 1151 CREEKWOOD CV\nAddress: 2930 Horizon Park Dr Ste R..\nCity: LAWRENCEVILLE\nCity: Suwanee,\nState: GA\nState: GA\nPostal Code: 30046\nPostal code: 30024\nPatient Phone Number: 6783492069\nPhone Number: 6785462840\nPrimary Ins: Medicare\nPolicy #: 1XK0G53CT01\nFax Number: 678-546-2844\nPrivate Ins:\nPolicy #:\n2086\n66\nmoul\nHeight:\nWeight:\nThis patient is being treated under a comprehensive plan of care for knee pain.\nI. the undersigned; certify that the prescribed orthosis is medically necessary for the patient's overall well-being. This patient has sufered\nan injury or undergone knee surgery. In my opinion, the following knee orthosis products are both reasonable and necessary in reference\nto treatment of the patient's condition and/or rehabilitation. My patient has been in my care regurding the diagnosis below. This is the\nfreatment I see fit for this patient at this time. I certify that this information is true and correct.\nDIAGNosIs; Provider can simply cut off the diagnosis which they don't find appropriate\nRheumatoid Arthritis without rheumatoid factor, right knee (M06.061)\nRheumatoid Arthritis without rheumatoid factor, left knee (M06.062)\nUnilateral Primary Osteoarthritis, Right knee (M17.11)\nUnilateral Primary Osteoarthritis, left knee (M17.12)\nBilateral Primary Osteoarthritis (M17.0)\nEnronic instability of knee, right knee (M23.51)\nmronc mstaDiuty oI Knee, left Knee (Mz3.52)\nOther /Explain:\nA\nKNEE:\nLeft Knee\nRight Knee\nOur cvaluatiou of the aluve paticut has detersjueal thal provlding the following knee orthosis product will benent this patent\nDISPENSE:\nL1851: Adjustable Flexion & Extension Joint (Unicentric or Polycentric), Medial-Lateral & Rotation Control, +/-\nVarus/Valgus Adjustrment, Prefabricated, Off-The Shelf; includes L2397 Suspension Sleeve.\nEstmated lengh need months:9 LIFTM\n72134\nPhysician Signature:\nDate signed;\nI\nPhysician Name Dr. Jnlius Ajayi, MD\nNPI: 1013189364.",
+          "text_length": 2156,
+          "confidence": 89.39039411644141,
+          "processing_time": 16.23452091217041,
+          "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr__0r5h504\\page_0002.png"
+        }
+      ]
+    }
+  },
+  "comparison": {
+    "successful_methods": [
+      "scanned",
+      "ocr"
+    ],
+    "failed_methods": [],
+    "best_performance": {
+      "method": "scanned",
+      "time": 0.0009560585021972656,
+      "chars_per_second": 0.0
+    },
+    "most_accurate": {
+      "method": "ocr",
+      "characters": 3442
+    },
+    "speed_comparison": {
+      "scanned": {
+        "time": 0.0009560585021972656,
+        "relative_speed": "1.0x"
+      },
+      "ocr": {
+        "time": 32.44183039665222,
+        "relative_speed": "33932.9x"
+      }
+    },
+    "character_count_comparison": {
+      "scanned": 0,
+      "ocr": 3442
+    },
+    "similarities": {
+      "similarity_score": 0.0,
+      "similarity_percent": "0.0%"
+    }
+  },
+  "recommendation": {
+    "recommended_method": "ocr",
+    "confidence": 0.8,
+    "reason": "Analysis recommended ocr with 80.0% confidence",
+    "alternatives": [
+      {
+        "method": "scanned",
+        "reason": "Successful extraction but not recommended by analysis"
+      }
+    ],
+    "notes": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "model": "gpt-oss-20b",
+  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "extraction_date": "",
+  "response": {
+    "patient": {
+      "full_name": "Dennis J Roller",
+      "first_name": "Dennis",
+      "middle_name": "J",
+      "last_name": "Roller",
+      "dob": "09/03/1957",
+      "address_full": "410 Lakeville Rd Suite #200",
+      "city": "New Hyde Park",
+      "state": "New York",
+      "country": "USA",
+      "postal_code": "11042",
+      "state_code": "NY",
+      "phone": "516-354-9248",
+      "mobile_landline": "",
+      "email": "",
+      "fax": "",
+      "account_number": ""
+    },
+    "doctor": {
+      "npi": "1396809117"
+    }
+  }
+}

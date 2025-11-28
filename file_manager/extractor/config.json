@@ -1,0 +1,110 @@
+{
+  "extractor_config": {
+    "version": "1.0.0",
+    "created": "2025-11-04",
+    "description": "OCR Extractor Configuration - Raw Pipeline Based on Performance Testing"
+  },
+  "engines": {
+    "default": "paddleocr",
+    "fallback": "tesseract",
+    "available": ["tesseract", "paddleocr"]
+  },
+  "preprocessing": {
+    "enabled": false,
+    "reason": "Testing shows preprocessing reduces OCR accuracy for both engines",
+    "note": "Based on 4-variant comparison testing results",
+    "test_results": {
+      "tesseract": {
+        "raw_confidence": 63.1,
+        "raw_time": 0.15,
+        "preprocessed_confidence": 54.7,
+        "preprocessed_time": 1.08,
+        "conclusion": "Raw is 15% more accurate and 7x faster"
+      },
+      "paddleocr": {
+        "raw_confidence": 99.8,
+        "raw_time": 5.27,
+        "preprocessed_confidence": 0.0,
+        "preprocessed_time": 0.0,
+        "conclusion": "Preprocessing completely fails, raw provides excellent results"
+      }
+    }
+  },
+  "performance": {
+    "timeout": 30,
+    "retry_attempts": 2,
+    "max_concurrent_requests": 12,
+    "max_workers": 12,
+    "cache_results": false,
+    "log_performance": true,
+    "queue_size": 100,
+    "connection_pool_size": 50,
+    "memory_limit_mb": 6144,
+    "timeout_multiplier": 0.8,
+    "cpu_utilization_target": 0.85,
+    "dynamic_sizing": true,
+    "auto_scale": true
+  },
+  "tesseract_config": {
+    "psm_modes": ["--psm 6", "--psm 3", "--psm 1"],
+    "timeout": 30,
+    "confidence_threshold": 0,
+    "parallel_processing": true,
+    "prefer_for_simple_docs": true
+  },
+  "paddleocr_config": {
+    "use_textline_orientation": true,
+    "lang": "en",
+    "timeout": 60,
+    "confidence_threshold": 0,
+    "parallel_processing": true,
+    "batch_mode": false,
+    "use_gpu": true,
+    "gpu_mem": 8000,
+    "enable_mkldnn": true
+  },
+  "fallback_logic": {
+    "enable_fallback": true,
+    "fallback_triggers": [
+      "confidence_below_threshold",
+      "timeout_exceeded",
+      "engine_error",
+      "empty_result"
+    ],
+    "confidence_threshold": 10.0,
+    "empty_result_threshold": 5
+  },
+  "logging": {
+    "level": "INFO",
+    "log_extraction_details": true,
+    "log_performance_metrics": true,
+    "log_fallback_events": true
+  },
+  "output_format": {
+    "include_metadata": true,
+    "include_confidence": true,
+    "include_processing_time": true,
+    "include_engine_info": true
+  },
+  "optimization": {
+    "skip_confidence_calculation": false,
+    "quick_mode": false,
+    "batch_processing": false
+  },
+  "ocr": {
+    "paddle_ocr_timeout": 60,
+    "tesseract_timeout": 30,
+    "use_gpu": true,
+    "gpu_fallback_to_cpu": true,
+    "batch_processing": false,
+    "gpu_device_id": 0,
+    "enable_tensorrt": false
+  },
+  "monitoring": {
+    "enable_monitoring": true,
+    "check_interval_seconds": 30,
+    "auto_scale": true,
+    "min_workers": 2,
+    "max_workers": 16
+  }
+}

@@ -1,0 +1,29 @@
+# PatXtract File Manager Dependencies
+
+# Core PDF Processing
+pymupdf
+
+# OCR Engines (CPU version)
+# For CPU-only PaddleOCR installation, use: pip install paddlepaddle==3.2.2 -f https://www.paddlepaddle.org.cn/whl/mkl/avx/stable.html
+# paddleocr==2.7.3
+# paddlepaddle==3.2.2
+pytesseract==0.3.10
+
+# Image Processing
+Pillow
+opencv-python
+
+# Numerical Computing
+numpy
+
+# Configuration and JSON Handling
+jsonschema
+
+# Logging and Debugging
+colorlog
+
+# Optional: Progress bars for batch processing
+tqdm
+
+# Optional: Better file type detection
+python-magic

@@ -1,0 +1,28 @@
+{
+  "model": "Phi-3_Small_8K_Instruct",
+  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "extraction_date": "",
+  "response": {
+    "patient": {
+      "full_name": "",
+      "first_name": "",
+      "middle_name": "",
+      "last_name": "",
+      "dob": "",
+      "address_full": "",
+      "city": "",
+      "state": "",
+      "country": "",
+      "postal_code": "",
+      "state_code": "",
+      "phone": "",
+      "mobile_landline": "",
+      "email": "",
+      "fax": "",
+      "account_number": ""
+    },
+    "doctor": {
+      "npi": ""
+    }
+  }
+}
