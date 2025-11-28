@@ -1,6 +1,6 @@
 {
   "model": "Phi-3_Small_8K_Instruct",
-  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "source_data_file": "1758735511_RX_1764063031.json",
   "extraction_date": "",
   "response": {
     "patient": {
@@ -23,6 +23,18 @@
     },
     "doctor": {
       "npi": ""
+    },
+    "insurance": {
+      "primary_insurance": "",
+      "primary_insurance_id": "",
+      "secondary_insurance": "",
+      "secondary_insurance_id": "",
+      "tertiary_insurance": "",
+      "tertiary_insurance_id": ""
+    },
+    "dme": {
+      "dme_id": "",
+      "items": []
     }
   }
 }

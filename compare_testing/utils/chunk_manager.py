@@ -81,37 +81,76 @@ class ChunkManager:
         Returns:
             Tuple of (chunks, analysis_info)
         """
-        # CRITICAL FIX: Add timeout protection - CRITICAL for hanging issue
         import time
         start_time = time.time()
         timeout_seconds = 60  # Maximum time to spend chunking
 
+        # Validate input
+        if not pages:
+            logger.error("No pages provided for chunking")
+            return [], {}
+
         # Progress tracking
         logger.info(f"Starting chunk creation for {len(pages)} pages")
 
-        analysis = self.analyze_document(pages)
+        try:
+            analysis = self.analyze_document(pages)
 
-        if not analysis['needs_chunking']:
-            logger.info("Document fits in single chunk, no chunking needed")
-            return [pages], analysis
+            if not analysis['needs_chunking']:
+                logger.info("Document fits in single chunk, no chunking needed")
+                return [pages], analysis
 
-        # Use existing token_estimator logic with progress monitoring
-        chunks = self.token_estimator.create_chunks(
-            pages,
-            analysis['pages_per_chunk'],
-            analysis['chunk_overlap_ratio']
-        )
+            pages_per_chunk = analysis.get('pages_per_chunk', 50)
+            overlap_ratio = analysis.get('chunk_overlap_ratio', 0.1)
 
-        # CRITICAL FIX: Check timeout
-        if time.time() - start_time > timeout_seconds:
-            logger.warning("Chunking operation timed out, falling back to single chunk")
-            pages_per_chunk = analysis['pages_per_chunk']
-            return [pages[:pages_per_chunk]], analysis
+            # Validate chunking parameters
+            if pages_per_chunk <= 0:
+                logger.error(f"Invalid pages_per_chunk: {pages_per_chunk}, using fallback")
+                pages_per_chunk = min(50, len(pages))
 
-        logger.info(f"Successfully created {len(chunks)} chunks in {time.time() - start_time:.2f}s")
-        logger.info(f"Chunk sizes: {[len(chunk) for chunk in chunks]}")
+            # Create chunks manually with better error handling
+            chunks = []
+            overlap_size = max(1, int(pages_per_chunk * overlap_ratio))
+            current_position = 0
 
-        return chunks, analysis
+            while current_position < len(pages):
+                # Check timeout
+                if time.time() - start_time > timeout_seconds:
+                    logger.warning("Chunking operation timed out, using what we have")
+                    break
+
+                # Calculate chunk end position
+                chunk_end = min(current_position + pages_per_chunk, len(pages))
+
+                # Extract chunk
+                chunk = pages[current_position:chunk_end]
+
+                if chunk:  # Only add non-empty chunks
+                    chunks.append(chunk)
+                    logger.debug(f"Created chunk {len(chunks)}: pages {current_position+1} to {chunk_end}")
+
+                # Move to next position with overlap
+                current_position = chunk_end - overlap_size
+
+                # Prevent infinite loop
+                if current_position >= len(pages) - overlap_size:
+                    break
+
+            # Validate chunks
+            if not chunks:
+                logger.warning("No valid chunks created, falling back to single chunk")
+                chunks = [pages]
+
+            logger.info(f"Successfully created {len(chunks)} chunks in {time.time() - start_time:.2f}s")
+            logger.info(f"Chunk sizes: {[len(chunk) for chunk in chunks]}")
+
+            return chunks, analysis
+
+        except Exception as e:
+            logger.error(f"Error during chunk creation: {e}")
+            # Fallback: return single chunk
+            logger.warning("Falling back to single chunk due to error")
+            return [pages], {'needs_chunking': False, 'error': str(e)}
 
     def merge_chunk_results(self, chunk_results: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
@@ -221,54 +260,6 @@ class ChunkManager:
             analysis: Chunking analysis dictionary
             chunks: List of page chunks
             algorithm_name: Name of the algorithm
-            timestamp: Timestamp string
-
-        Returns:
-            Path to saved metadata file
-        """
-        # CRITICAL FIX: Generate chunking metadata file as expected by user
-        import json
-        import os
-        from datetime import datetime
-
-        metadata_filename = f"chunking_metadata_{algorithm_name}_{timestamp}.json"
-        metadata_path = self.output_dir / metadata_filename
-
-        metadata = {
-            'algorithm_name': algorithm_name,
-            'timestamp': timestamp,
-            'chunking_analysis': analysis,
-            'chunks_info': [
-                {
-                    'chunk_index': i,
-                    'pages_count': len(chunk),
-                    'page_numbers': [page['page_number'] for page in chunk],
-                    'estimated_tokens': sum(len(page.get('text', '')) for page in chunk)
-                }
-                for i, chunk in enumerate(chunks)
-            ],
-            'total_chunks': len(chunks),
-            'original_total_pages': analysis.get('total_pages', 0)
-        }
-
-        try:
-            with open(metadata_path, 'w', encoding='utf-8') as f:
-                json.dump(metadata, f, indent=2, ensure_ascii=False)
-            logger.info(f"Chunking metadata saved to: {metadata_path}")
-            return metadata_path
-        except Exception as e:
-            logger.error(f"Error saving chunking metadata: {e}")
-            return None
-
-    def save_chunking_metadata(self, analysis: Dict[str, Any], chunks: List[List[Dict[str, Any]]],
-                            algorithm_name: str, timestamp: str) -> str:
-        """
-        Save chunking metadata to separate file as expected by user.
-
-        Args:
-            analysis: Chunking analysis dictionary
-            chunks: List of page chunks
-            algorithm_name: Name of algorithm
             timestamp: Timestamp string
 
         Returns:

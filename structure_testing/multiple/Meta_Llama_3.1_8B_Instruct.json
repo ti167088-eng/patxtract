@@ -1,28 +1,40 @@
 {
   "model": "Meta_Llama_3.1_8B_Instruct",
-  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "source_data_file": "1758735511_RX_1764063031.json",
   "extraction_date": "",
   "response": {
     "patient": {
-      "full_name": "Dennis J Roller",
-      "first_name": "Dennis J",
+      "full_name": "",
+      "first_name": "",
       "middle_name": "",
-      "last_name": "Roller",
-      "dob": "09/03/1957",
-      "address_full": "55 Primrose Ave, 410 Lakeville Rd Suite #200",
-      "city": "Floral Park, New Hyde Park",
-      "state": "NY",
+      "last_name": "",
+      "dob": "",
+      "address_full": "",
+      "city": "",
+      "state": "",
       "country": "",
-      "postal_code": "11001, 11042",
-      "state_code": "NY",
-      "phone": "5163549248",
-      "mobile_landline": "5167082520",
+      "postal_code": "",
+      "state_code": "",
+      "phone": "",
+      "mobile_landline": "",
       "email": "",
-      "fax": "5167082585",
+      "fax": "",
       "account_number": ""
     },
     "doctor": {
-      "npi": "1396809117"
+      "npi": ""
+    },
+    "insurance": {
+      "primary_insurance": "",
+      "primary_insurance_id": "",
+      "secondary_insurance": "",
+      "secondary_insurance_id": "",
+      "tertiary_insurance": "",
+      "tertiary_insurance_id": ""
+    },
+    "dme": {
+      "dme_id": "",
+      "items": []
     }
   }
 }

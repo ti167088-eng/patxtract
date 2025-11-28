@@ -130,12 +130,27 @@ Patient Information:
 Doctor Information:
 - npi: National Provider Identifier (10-digit number)
 
+Insurance Information:
+- primary_insurance: Name of primary insurance provider
+- primary_insurance_id: Primary insurance policy/member ID
+- secondary_insurance: Name of secondary insurance provider (if any)
+- secondary_insurance_id: Secondary insurance policy/member ID (if any)
+- tertiary_insurance: Name of tertiary insurance provider (if any)
+- tertiary_insurance_id: Tertiary insurance policy/member ID (if any)
+
+DME (Durable Medical Equipment) Information:
+- dme_id: DME supplier or order ID
+- items: List of DME items, each containing:
+  - item_name: Name/description of the DME item
+  - item_quantity: Quantity of the item
+
 Instructions:
 1. Extract all available information from the text
 2. If a field is not found, use an empty string ("") or null
-3. Normalize phone numbers to standard format (e.g., "123-456-7890")
-4. Ensure NPI is exactly 10 digits if found
-5. Return only valid JSON object with the structure below
+3. For items array, if no items found, use an empty array []
+4. Normalize phone numbers to standard format (e.g., "123-456-7890")
+5. Ensure NPI is exactly 10 digits if found
+6. Return only valid JSON object with the structure below
 
 Expected JSON structure:
 {{
@@ -159,6 +174,18 @@ Expected JSON structure:
     }},
     "doctor": {{
         "npi": ""
+    }},
+    "insurance": {{
+        "primary_insurance": "",
+        "primary_insurance_id": "",
+        "secondary_insurance": "",
+        "secondary_insurance_id": "",
+        "tertiary_insurance": "",
+        "tertiary_insurance_id": ""
+    }},
+    "dme": {{
+        "dme_id": "",
+        "items": []
     }}
 }}
 
@@ -313,9 +340,13 @@ Extract the information and return the JSON object:
         # Simple confidence calculation - can be enhanced
         patient_confidence = 0.0
         doctor_confidence = 0.0
+        insurance_confidence = 0.0
+        dme_confidence = 0.0
 
         patient_data = structured_data.get("patient", {})
         doctor_data = structured_data.get("doctor", {})
+        insurance_data = structured_data.get("insurance", {})
+        dme_data = structured_data.get("dme", {})
 
         # Calculate patient confidence based on filled fields
         patient_fields = [
@@ -332,12 +363,32 @@ Extract the information and return the JSON object:
         elif npi:
             doctor_confidence = 0.5
 
-        overall_confidence = (patient_confidence + doctor_confidence) / 2.0
+        # Calculate insurance confidence
+        insurance_fields = [
+            "primary_insurance", "primary_insurance_id",
+            "secondary_insurance", "secondary_insurance_id",
+            "tertiary_insurance", "tertiary_insurance_id"
+        ]
+        filled_insurance_fields = sum(1 for field in insurance_fields if insurance_data.get(field, "").strip())
+        insurance_confidence = filled_insurance_fields / len(insurance_fields) if insurance_fields else 0.0
+
+        # Calculate DME confidence
+        dme_id = dme_data.get("dme_id", "").strip()
+        items = dme_data.get("items", [])
+        if dme_id and items:
+            dme_confidence = 1.0
+        elif dme_id or items:
+            dme_confidence = 0.5
+
+        # Combine confidences (weighted average or simple average)
+        overall_confidence = (patient_confidence + doctor_confidence + insurance_confidence + dme_confidence) / 4.0
 
         return {
             "overall": overall_confidence,
             "patient": patient_confidence,
-            "doctor": doctor_confidence
+            "doctor": doctor_confidence,
+            "insurance": insurance_confidence,
+            "dme": dme_confidence
         }
 
     def _create_final_result(self, pdf_path: Path, structured_results: List[Dict[str, Any]],
@@ -374,7 +425,7 @@ Extract the information and return the JSON object:
             "metadata": {
                 "file_info": extraction_result.get("metadata", {}).get("file_info", {}),
                 "extraction_confidence": round(sum(page.get("confidence_scores", {}).get("overall", 0)
-                                                 for page in structured_results) / len(structured_results), 2) if structured_results else 0.0
+                                                 for page in structured_results if page.get("success")) / successful_pages, 2) if successful_pages else 0.0
             }
         }
 
@@ -388,37 +439,69 @@ Extract the information and return the JSON object:
         Returns:
             Document summary dictionary
         """
-        # Aggregate patient information from all pages
+        # Aggregate patient, doctor, insurance, and DME information from all pages
         all_patient_data = []
-        all_npi_numbers = []
+        all_doctor_data = []
+        all_insurance_data = []
+        all_dme_data = []
 
         for page_result in structured_results:
             if page_result.get("success", False):
                 structured_data = page_result.get("structured_data", {})
-                patient_data = structured_data.get("patient", {})
-                doctor_data = structured_data.get("doctor", {})
-
-                if any(patient_data.values()):  # If any patient field has data
-                    all_patient_data.append(patient_data)
-
-                if doctor_data.get("npi"):
-                    all_npi_numbers.append(doctor_data["npi"])
+                all_patient_data.append(structured_data.get("patient", {}))
+                all_doctor_data.append(structured_data.get("doctor", {}))
+                all_insurance_data.append(structured_data.get("insurance", {}))
+                all_dme_data.append(structured_data.get("dme", {}))
 
         # Select best patient data (prioritize complete information)
         best_patient_data = {}
         if all_patient_data:
-            # Sort by number of non-empty fields and take the best one
             best_patient_data = max(all_patient_data,
                                    key=lambda x: sum(1 for v in x.values() if v.strip()))
 
         # Get unique NPI numbers
-        unique_npis = list(set(npi for npi in all_npi_numbers if npi.strip()))
+        unique_npis = list(set(data.get("npi") for data in all_doctor_data if data.get("npi", "").strip()))
+        doctor_npi = unique_npis[0] if unique_npis else ""
+
+        # Consolidate insurance information
+        consolidated_insurance = {
+            "primary_insurance": "",
+            "primary_insurance_id": "",
+            "secondary_insurance": "",
+            "secondary_insurance_id": "",
+            "tertiary_insurance": "",
+            "tertiary_insurance_id": ""
+        }
+        for data in all_insurance_data:
+            for key, value in data.items():
+                if value and not consolidated_insurance.get(key):
+                    consolidated_insurance[key] = value
+
+        # Consolidate DME information
+        consolidated_dme = {"dme_id": "", "items": []}
+        dme_items_set = set() # Use a set to avoid duplicate items
+
+        for data in all_dme_data:
+            if data.get("dme_id") and not consolidated_dme["dme_id"]:
+                consolidated_dme["dme_id"] = data["dme_id"]
+
+            for item in data.get("items", []):
+                item_tuple = (item.get("item_name", ""), item.get("item_quantity", ""))
+                if item_tuple not in dme_items_set:
+                    consolidated_dme["items"].append(item)
+                    dme_items_set.add(item_tuple)
+
+        # Calculate overall confidence
+        confidences = [page.get("confidence_scores", {}).get("overall", 0.0)
+                       for page in structured_results if page.get("success")]
+        overall_extraction_confidence = round(sum(confidences) / len(confidences), 2) if confidences else 0.0
 
         return {
             "patient_summary": best_patient_data,
-            "doctor_npi": unique_npis[0] if unique_npis else "",
-            "extraction_confidence": round(sum(page.get("confidence_scores", {}).get("overall", 0)
-                                             for page in structured_results) / len(structured_results), 2) if structured_results else 0.0,
+            "doctor_npi": doctor_npi,
+            "insurance_summary": consolidated_insurance,
+            "dme_summary": consolidated_dme,
+            "extraction_confidence": overall_extraction_confidence,
             "document_type": "medical_form"
         }
 
@@ -589,6 +672,11 @@ Extract the information and return the JSON object:
                         print(f"[PATIENT] DOB: {patient['dob']}")
                     if summary.get("doctor_npi"):
                         print(f"[DOCTOR] NPI: {summary['doctor_npi']}")
+                    if summary.get("insurance_summary", {}).get("primary_insurance"):
+                        print(f"[INSURANCE] Primary: {summary['insurance_summary']['primary_insurance']}")
+                    if summary.get("dme_summary", {}).get("dme_id"):
+                        print(f"[DME] ID: {summary['dme_summary']['dme_id']}")
+                        print(f"[DME] Items: {len(summary['dme_summary'].get('items', []))}")
                 else:
                     print(f"[FAIL] Processing failed: {result.get('error', 'Unknown error')}")
 
@@ -792,14 +880,30 @@ Patient Information:
 Doctor Information:
 - npi: National Provider Identifier (10-digit number)
 
+Insurance Information:
+- primary_insurance: Name of primary insurance provider
+- primary_insurance_id: Primary insurance policy/member ID
+- secondary_insurance: Name of secondary insurance provider (if any)
+- secondary_insurance_id: Secondary insurance policy/member ID (if any)
+- tertiary_insurance: Name of tertiary insurance provider (if any)
+- tertiary_insurance_id: Tertiary insurance policy/member ID (if any)
+
+DME (Durable Medical Equipment) Information:
+- dme_id: DME supplier or order ID
+- items: List of ALL DME items found across all pages, each containing:
+  - item_name: Name/description of the DME item
+  - item_quantity: Quantity of the item
+
 IMPORTANT INSTRUCTIONS:
 1. This is a SINGLE patient document - look across ALL pages for complete information
 2. Combine information from different pages to create a complete patient profile
-3. If the same field appears on multiple pages, use the most complete/clear version
-4. If a field is not found anywhere in the document, use an empty string ("")
-5. Normalize phone numbers to standard format (e.g., "123-456-7890")
-6. Ensure NPI is exactly 10 digits if found
-7. Return only valid JSON object with the structure below
+3. For DME items, collect ALL items mentioned across all pages into a single items array
+4. If the same field appears on multiple pages, use the most complete/clear version
+5. If a field is not found anywhere in the document, use an empty string ("")
+6. For items array, if no items found, use an empty array []
+7. Normalize phone numbers to standard format (e.g., "123-456-7890")
+8. Ensure NPI is exactly 10 digits if found
+9. Return only valid JSON object with the structure below
 
 Expected JSON structure:
 {{
@@ -823,6 +927,18 @@ Expected JSON structure:
     }},
     "doctor": {{
         "npi": ""
+    }},
+    "insurance": {{
+        "primary_insurance": "",
+        "primary_insurance_id": "",
+        "secondary_insurance": "",
+        "secondary_insurance_id": "",
+        "tertiary_insurance": "",
+        "tertiary_insurance_id": ""
+    }},
+    "dme": {{
+        "dme_id": "",
+        "items": []
     }}
 }}
 
@@ -861,6 +977,18 @@ Extract the comprehensive information from all pages and return the JSON object:
             },
             "doctor": {
                 "npi": ""
+            },
+            "insurance": {
+                "primary_insurance": "",
+                "primary_insurance_id": "",
+                "secondary_insurance": "",
+                "secondary_insurance_id": "",
+                "tertiary_insurance": "",
+                "tertiary_insurance_id": ""
+            },
+            "dme": {
+                "dme_id": "",
+                "items": []
             }
         }
 
@@ -886,6 +1014,8 @@ Extract the comprehensive information from all pages and return the JSON object:
         document_summary = {
             "patient_summary": structured_data.get("patient", {}),
             "doctor_npi": structured_data.get("doctor", {}).get("npi", ""),
+            "insurance_summary": structured_data.get("insurance", {}),
+            "dme_summary": structured_data.get("dme", {}),
             "extraction_confidence": document_result.get("confidence_scores", {}).get("overall", 0.0),
             "document_type": "medical_form",
             "processing_approach": "combined_document"

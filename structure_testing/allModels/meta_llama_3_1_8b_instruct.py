@@ -137,6 +137,18 @@ class MetaLlama31_8B_Instruct(BaseModel):
             },
             "doctor": {
                 "npi": ""
+            },
+            "insurance": {
+                "primary_insurance": "",
+                "primary_insurance_id": "",
+                "secondary_insurance": "",
+                "secondary_insurance_id": "",
+                "tertiary_insurance": "",
+                "tertiary_insurance_id": ""
+            },
+            "dme": {
+                "dme_id": "",
+                "items": []
             }
         }
 
@@ -152,6 +164,10 @@ class MetaLlama31_8B_Instruct(BaseModel):
                         result["patient"].update(extracted_data["patient"])
                     if "doctor" in extracted_data:
                         result["doctor"].update(extracted_data["doctor"])
+                    if "insurance" in extracted_data:
+                        result["insurance"].update(extracted_data["insurance"])
+                    if "dme" in extracted_data:
+                        result["dme"].update(extracted_data["dme"])
                     return result
                 except json.JSONDecodeError:
                     self.logger.warning("Failed to parse JSON from model response")

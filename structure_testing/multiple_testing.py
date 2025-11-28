@@ -223,12 +223,29 @@ class MultipleModelTester:
 
         # Prepare the data to save (only the model's response)
         # Handle both old format and new base class format
-        response_data = result.get("data", result.get("structured_data", {}))
+        # First check document_result for combined approach, then structured_data
+        if "document_result" in result:
+            response_data = result["document_result"].get("structured_data", {})
+        else:
+            response_data = result.get("data", result.get("structured_data", {}))
+
+        # Also extract from document_summary if available for better data
+        if "document_summary" in result:
+            summary = result["document_summary"]
+            # Merge summary data into response if it has more complete information
+            if summary.get("patient_summary"):
+                response_data["patient"] = summary["patient_summary"]
+            if summary.get("doctor_npi"):
+                response_data.setdefault("doctor", {})["npi"] = summary["doctor_npi"]
+            if summary.get("insurance_summary"):
+                response_data["insurance"] = summary["insurance_summary"]
+            if summary.get("dme_summary"):
+                response_data["dme"] = summary["dme_summary"]
 
         output_data = {
             "model": model_name,
             "source_data_file": data_file.name,
-            "extraction_date": result.get("extraction_date", ""),
+            "extraction_date": result.get("processing_timestamp", ""),
             "response": response_data
         }
 
@@ -280,6 +297,32 @@ class MultipleModelTester:
 
             if result is not None:
                 successful_runs += 1
+
+                # Display extracted field summary
+                summary = result.get("document_summary", {})
+                if summary:
+                    print(f"   [INFO] Extracted fields for {model.model_name}:")
+                    patient = summary.get("patient_summary", {})
+                    if patient.get("full_name"):
+                        print(f"   - Patient: {patient['full_name']}")
+                    if patient.get("dob"):
+                        print(f"   - DOB: {patient['dob']}")
+                    if summary.get("doctor_npi"):
+                        print(f"   - Doctor NPI: {summary['doctor_npi']}")
+
+                    insurance = summary.get("insurance_summary", {})
+                    if insurance.get("primary_insurance"):
+                        print(f"   - Primary Insurance: {insurance['primary_insurance']} (ID: {insurance.get('primary_insurance_id', 'N/A')})")
+                    if insurance.get("secondary_insurance"):
+                        print(f"   - Secondary Insurance: {insurance['secondary_insurance']} (ID: {insurance.get('secondary_insurance_id', 'N/A')})")
+
+                    dme = summary.get("dme_summary", {})
+                    if dme.get("dme_id"):
+                        print(f"   - DME ID: {dme['dme_id']}")
+                    if dme.get("items"):
+                        print(f"   - DME Items: {len(dme['items'])} item(s)")
+                        for item in dme["items"][:3]:  # Show first 3 items
+                            print(f"     • {item.get('item_name', 'Unknown')} (Qty: {item.get('item_quantity', 'N/A')})")
 
         # Summary
         print("\n" + "=" * 70)

@@ -145,6 +145,18 @@ class GPT_OSS_20B_Model(BaseModel):
             },
             "doctor": {
                 "npi": ""
+            },
+            "insurance": {
+                "primary_insurance": "",
+                "primary_insurance_id": "",
+                "secondary_insurance": "",
+                "secondary_insurance_id": "",
+                "tertiary_insurance": "",
+                "tertiary_insurance_id": ""
+            },
+            "dme": {
+                "dme_id": "",
+                "items": []
             }
         }
 
@@ -238,6 +250,23 @@ class GPT_OSS_20B_Model(BaseModel):
                     for key in result["doctor"]:
                         if key in doctor_data and doctor_data[key] is not None:
                             result["doctor"][key] = str(doctor_data[key]).strip()
+
+            # Merge insurance information
+            if "insurance" in parsed_data:
+                insurance_data = parsed_data["insurance"]
+                if isinstance(insurance_data, dict):
+                    for key in result["insurance"]:
+                        if key in insurance_data and insurance_data[key] is not None:
+                            result["insurance"][key] = str(insurance_data[key]).strip()
+
+            # Merge DME information
+            if "dme" in parsed_data:
+                dme_data = parsed_data["dme"]
+                if isinstance(dme_data, dict):
+                    if "dme_id" in dme_data and dme_data["dme_id"] is not None:
+                        result["dme"]["dme_id"] = str(dme_data["dme_id"]).strip()
+                    if "items" in dme_data and isinstance(dme_data["items"], list):
+                        result["dme"]["items"] = dme_data["items"]
 
         except Exception as e:
             self.logger.warning(f"Error merging structured data: {e}")

@@ -495,22 +495,44 @@ class BasePatientIdentifier(abc.ABC):
 
         chunks, chunk_info = chunk_manager.create_chunks(pages)
         chunk_results = []
+        failed_chunks = []
 
         for i, chunk in enumerate(chunks):
             self.logger.info(f"Processing chunk {i+1}/{len(chunks)} ({len(chunk)} pages)")
+            print(f"🔄 Processing chunk {i+1}/{len(chunks)} ({len(chunk)} pages)...")
 
-            chunk_result = self.process_single_chunk(chunk, create_prompt_func, call_api_func,
-                                                  extract_structure_func, create_empty_result_func)
+            try:
+                chunk_result = self.process_single_chunk(chunk, create_prompt_func, call_api_func,
+                                                      extract_structure_func, create_empty_result_func)
 
-            if chunk_result:
-                chunk_results.append(chunk_result)
-            else:
-                self.logger.warning(f"Chunk {i+1} failed to produce results")
+                if chunk_result and isinstance(chunk_result, dict):
+                    # Validate chunk result has minimum required structure
+                    if 'patient_groups' in chunk_result or 'summary' in chunk_result:
+                        chunk_results.append(chunk_result)
+                        print(f"✅ Chunk {i+1} completed successfully")
+                    else:
+                        self.logger.warning(f"Chunk {i+1} missing required structure")
+                        failed_chunks.append(i+1)
+                        print(f"⚠️ Chunk {i+1} missing data structure")
+                else:
+                    self.logger.warning(f"Chunk {i+1} failed to produce valid results")
+                    failed_chunks.append(i+1)
+                    print(f"❌ Chunk {i+1} failed")
+
+            except Exception as e:
+                self.logger.error(f"Exception processing chunk {i+1}: {e}")
+                failed_chunks.append(i+1)
+                print(f"❌ Chunk {i+1} error: {e}")
 
         if not chunk_results:
             self.logger.error("All chunks failed to produce results")
+            print(f"❌ All {len(chunks)} chunks failed to process")
             total_pages = len(pages)
             return create_empty_result_func(total_pages, 0)
+
+        if failed_chunks:
+            print(f"⚠️ {len(failed_chunks)} chunk(s) failed: {failed_chunks}")
+            self.logger.warning(f"Failed chunks: {failed_chunks}")
 
         # Merge results from all chunks
         consolidated_result = chunk_manager.merge_chunk_results(chunk_results)
@@ -546,8 +568,15 @@ class BasePatientIdentifier(abc.ABC):
         import time
         start_time = time.time()
 
+        # Validate pages data
+        if not pages:
+            self.logger.error("Empty pages list provided to process_single_chunk")
+            return create_empty_result_func(0, 0.0)
+
         if not self.validate_pages_data(pages):
-            raise ValueError("Invalid pages data format")
+            self.logger.error("Invalid pages data format in chunk")
+            processing_time = time.time() - start_time
+            return create_empty_result_func(len(pages), processing_time)
 
         # Prepare text for analysis
         try:
@@ -573,29 +602,56 @@ class BasePatientIdentifier(abc.ABC):
                     "This method must be implemented by all patient identifier subclasses."
                 )
             pages_text = self.prepare_pages_text(pages)
+
+            if not pages_text or not pages_text.strip():
+                self.logger.warning("Empty pages_text generated from chunk")
+                processing_time = time.time() - start_time
+                return create_empty_result_func(len(pages), processing_time)
+
         except (NotImplementedError, AttributeError) as e:
             self.logger.error(f"Missing required method: {e}")
             raise
         except Exception as e:
             self.logger.error(f"Error preparing pages text: {e}")
-            raise ValueError(f"Failed to prepare pages text: {e}")
+            processing_time = time.time() - start_time
+            return create_empty_result_func(len(pages), processing_time)
 
         total_tokens = token_estimator.estimate_tokens_from_text(pages_text)
 
         self.logger.info(f"Processing chunk: {len(pages)} pages, ~{total_tokens} tokens")
 
-        # Create prompt
-        messages = create_prompt_func(pages_text, len(pages))
+        # Create prompt with error handling
+        try:
+            messages = create_prompt_func(pages_text, len(pages))
+            if not messages:
+                raise ValueError("create_prompt_func returned empty messages")
+        except Exception as e:
+            self.logger.error(f"Error creating prompt: {e}")
+            processing_time = time.time() - start_time
+            return create_empty_result_func(len(pages), processing_time)
 
         try:
-            # Call the API
+            # Call the API with timeout protection
+            self.logger.debug(f"Calling API for chunk with {len(pages)} pages")
             response = call_api_func(messages)
+
+            # Validate response structure
+            if not response or 'choices' not in response or not response['choices']:
+                self.logger.error("Invalid API response structure")
+                processing_time = time.time() - start_time
+                return create_empty_result_func(len(pages), processing_time)
 
             # Extract and parse the response
             response_text = response['choices'][0]['message']['content']
+
+            if not response_text or not response_text.strip():
+                self.logger.error("Empty response content from API")
+                processing_time = time.time() - start_time
+                return create_empty_result_func(len(pages), processing_time)
+
             parsed_result = extract_structure_func(response_text)
 
-            if not parsed_result:
+            if not parsed_result or not isinstance(parsed_result, dict):
                 self.logger.error("Failed to parse patient identification response")
                 processing_time = time.time() - start_time
                 return create_empty_result_func(len(pages), processing_time)
@@ -615,7 +671,7 @@ class BasePatientIdentifier(abc.ABC):
                 **parsed_result
             }
 
-            # Calculate and add summary
+            # Calculate and add summary if missing
             if 'summary' not in result:
                 unassigned_pages = result.get('unassigned_pages', {}).get('pages', [])
                 summary = self.get_processing_summary(
@@ -626,11 +682,16 @@ class BasePatientIdentifier(abc.ABC):
                 )
                 result['summary'] = summary
 
-            self.logger.info(f"Chunk processing completed: {result.get('summary', {}).get('total_patients', 0)} patients")
+            patients_found = result.get('summary', {}).get('total_patients', 0)
+            self.logger.info(f"Chunk processing completed: {patients_found} patients found in {processing_time:.2f}s")
             return result
 
+        except KeyError as e:
+            self.logger.error(f"Missing key in API response: {e}")
+            processing_time = time.time() - start_time
+            return create_empty_result_func(len(pages), processing_time)
         except Exception as e:
-            self.logger.error(f"Error in chunk processing: {e}")
+            self.logger.error(f"Error in chunk processing: {e}", exc_info=True)
             processing_time = time.time() - start_time
             return create_empty_result_func(len(pages), processing_time)
 

@@ -1,28 +1,45 @@
 {
   "model": "Mistral_7B_Instruct",
-  "source_data_file": "Dennis J Roller DO_1758102238.json",
+  "source_data_file": "1758735511_RX_1764063031.json",
   "extraction_date": "",
   "response": {
     "patient": {
-      "full_name": "Dennis J Roller",
-      "first_name": "Dennis",
-      "middle_name": "J",
-      "last_name": "Roller",
-      "dob": "09/03/1957",
-      "address_full": "55 Primrose Ave",
-      "city": "Floral Park",
-      "state": "New York",
-      "country": "United States",
-      "postal_code": "11001",
-      "state_code": "NY",
-      "phone": "516-354-9248",
-      "mobile_landline": "516-708-2520",
+      "full_name": "HUSSEIN-MUTHANNA, ALI A",
+      "first_name": "ALI",
+      "middle_name": "A",
+      "last_name": "HUSSEIN-MUTHANNA",
+      "dob": "09/27/1974",
+      "address_full": "5711 LAWNDALE ST",
+      "city": "DETROIT",
+      "state": "MICHIGAN",
+      "country": "USA",
+      "postal_code": "48210-1869",
+      "state_code": "MI",
+      "phone": "313-290-4365",
+      "mobile_landline": "",
       "email": "",
-      "fax": "516-708-2585",
-      "account_number": "4QD1UD0VV97"
+      "fax": "",
+      "account_number": ""
     },
     "doctor": {
-      "npi": "1396809117"
+      "npi": ""
+    },
+    "insurance": {
+      "primary_insurance": "United Healthcare Community Plan-MI (Medicaid Replacement - HMO)",
+      "primary_insurance_id": "ID0031697226",
+      "secondary_insurance": "",
+      "secondary_insurance_id": "",
+      "tertiary_insurance": "",
+      "tertiary_insurance_id": ""
+    },
+    "dme": {
+      "dme_id": "",
+      "items": [
+        {
+          "item_name": "FREESTYLE LIBRE 3 READER",
+          "item_quantity": 1
+        }
+      ]
     }
   }
 }
