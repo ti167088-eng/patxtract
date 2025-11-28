@@ -1,0 +1,306 @@
+{
+  "algorithm_name": "Gemma_3_4B_IT_Patient",
+  "processing_timestamp": "2025-11-26T18:27:41.059419",
+  "total_pages": 132,
+  "processing_time_seconds": 12.075416088104248,
+  "chunk_info": {
+    "is_chunk": true,
+    "chunk_tokens": 59956,
+    "chunk_pages": 132
+  },
+  "patient_groups": {
+    "patient_001": {
+      "patient_info": {
+        "full_name": "Ahmad Altrash",
+        "first_name": "Ahmad",
+        "last_name": "Altrash",
+        "middle_name": null,
+        "dob": "03/04/1980",
+        "address_full": "6578 MONTROSE ST",
+        "city": "Detroit",
+        "state": "MI",
+        "postal_code": "48228",
+        "phone": "206-990-3340"
+      },
+      "entries": [
+        {
+          "entry_id": "patient_001_entry_1",
+          "pages": [
+            1,
+            2
+          ],
+          "page_range": "1-2",
+          "confidence": 0.98,
+          "supporting_data": {
+            "evidence_summary": "Patient ID, DOB, address, and phone number consistently match across pages 1 and 2."
+          }
+        }
+      ],
+      "total_entries": 1,
+      "total_pages": 2,
+      "all_pages": [
+        1,
+        2
+      ],
+      "group_confidence": 0.98
+    },
+    "patient_002": {
+      "patient_info": {
+        "full_name": "CHRISTINE JACKSON",
+        "first_name": "CHRISTINE",
+        "last_name": "JACKSON",
+        "middle_name": null,
+        "dob": "07/05/1964",
+        "address_full": "1650 WOODSIDE DR APT E12, WESTLAND, MI 48185",
+        "city": "WESTLAND",
+        "state": "MI",
+        "postal_code": "48185",
+        "phone": "(563) 514-2869"
+      },
+      "entries": [
+        {
+          "entry_id": "patient_001_entry_1",
+          "pages": [
+            253,
+            254,
+            255,
+            256,
+            257,
+            258
+          ],
+          "page_range": "253-258",
+          "confidence": 0.9824999999999999,
+          "supporting_data": {
+            "evidence_summary": "Patient identified by name, DOB, and address consistently across multiple pages."
+          }
+        },
+        {
+          "entry_id": "patient_001_entry_1",
+          "pages": [
+            379,
+            380,
+            381,
+            382,
+            383,
+            384,
+            385,
+            386,
+            387,
+            388,
+            389,
+            390,
+            391,
+            392,
+            393,
+            394,
+            395,
+            396,
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415,
+            416,
+            417,
+            418,
+            419,
+            420,
+            421,
+            422,
+            423,
+            424,
+            425,
+            426,
+            427,
+            428,
+            429,
+            430,
+            431,
+            432,
+            433,
+            434,
+            435,
+            436
+          ],
+          "page_range": "379-436",
+          "confidence": 0.99,
+          "supporting_data": {
+            "evidence_summary": "Consistent address, phone number, DOB, and name across multiple pages.  Multiple forms and questionnaires confirm patient identity."
+          }
+        }
+      ],
+      "total_entries": 2,
+      "total_pages": 64,
+      "all_pages": [
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        436
+      ],
+      "group_confidence": 0.99
+    },
+    "patient_003": {
+      "patient_info": {
+        "full_name": "Chris Jackson",
+        "first_name": "Chris",
+        "last_name": "Jackson",
+        "middle_name": "",
+        "dob": "01/05/1964",
+        "address_full": "15845 Meyers Rd, DE THOIT, MI 48227",
+        "city": "DE THOIT",
+        "state": "MI",
+        "postal_code": "48227",
+        "phone": "4634152969"
+      },
+      "entries": [
+        {
+          "entry_id": "patient_001_entry_1",
+          "pages": [
+            430,
+            431,
+            432,
+            433,
+            434,
+            435
+          ],
+          "page_range": "430-435",
+          "confidence": 0.87,
+          "supporting_data": {
+            "evidence_summary": "Clear patient name, DOB, address, and phone number on page 430."
+          }
+        }
+      ],
+      "total_entries": 1,
+      "total_pages": 6,
+      "all_pages": [
+        430,
+        431,
+        432,
+        433,
+        434,
+        435
+      ],
+      "group_confidence": 0.98
+    }
+  },
+  "unassigned_pages": {
+    "pages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "reasons": [
+      "No patient information found",
+      "Insufficient data",
+      "Pages contain medical records for different patients"
+    ]
+  },
+  "summary": {
+    "total_patients": 3,
+    "total_entries": 4,
+    "assigned_pages": 72,
+    "unassigned_pages": 60,
+    "average_confidence": 0.9833333333333334
+  },
+  "chunking_info": {
+    "processed_in_chunks": true,
+    "num_chunks": 5,
+    "model_name": "gemma_3_4b_it_patient"
+  },
+  "chunking_metadata": {
+    "total_chunks": 5,
+    "successful_chunks": 5,
+    "chunk_sizes": [
+      132,
+      132,
+      132,
+      57,
+      6
+    ],
+    "total_tokens_processed": 195571,
+    "model_context_limit": 70000
+  },
+  "source_data_file": "extracted_3973c9d2_20251126_151040.json"
+}

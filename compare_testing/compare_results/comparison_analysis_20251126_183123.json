@@ -1,0 +1,42 @@
+{
+  "comparison_timestamp": "2025-11-26T18:31:23.047213",
+  "source_data_file": "extracted_3973c9d2_20251126_151040.json",
+  "algorithms_tested": [
+    "Gemma_3_4B_IT_Patient",
+    "GPT-OSS-20B_Patient"
+  ],
+  "algorithm_results": {
+    "Gemma_3_4B_IT_Patient": {
+      "result_file": "Gemma_3_4B_IT_Patient_20251126_183123.json",
+      "total_patients": 3,
+      "total_entries": 4,
+      "assigned_pages": 72,
+      "unassigned_pages": 60,
+      "average_confidence": 0.9833333333333334,
+      "processing_time_seconds": 12.075416088104248
+    },
+    "GPT-OSS-20B_Patient": {
+      "result_file": "GPT-OSS-20B_Patient_20251126_183123.json",
+      "total_patients": 11,
+      "total_entries": 11,
+      "assigned_pages": 319,
+      "unassigned_pages": -92,
+      "average_confidence": 0.9509090909090908,
+      "processing_time_seconds": 49.5486958026886
+    }
+  },
+  "patient_count_agreement": {
+    "consensus_patients": 11,
+    "max_patients": 11,
+    "min_patients": 3,
+    "agreement_percentage": 50.0
+  },
+  "page_assignment_differences": [],
+  "summary_statistics": {
+    "average_patients_per_algorithm": 7.0,
+    "average_entries_per_algorithm": 7.5,
+    "average_processing_time": 30.812055945396423,
+    "average_confidence_across_algorithms": 0.967121212121212,
+    "processing_time_variance": 37.47327971458435
+  }
+}

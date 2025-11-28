@@ -1,0 +1,42 @@
+{
+  "comparison_timestamp": "2025-11-26T11:29:45.867905",
+  "source_data_file": "140_1750417647.json",
+  "algorithms_tested": [
+    "GPT-OSS-20B_Patient",
+    "Qwen_2_5_7B_Instruct_Patient"
+  ],
+  "algorithm_results": {
+    "GPT-OSS-20B_Patient": {
+      "result_file": "GPT-OSS-20B_Patient_20251126_112945.json",
+      "total_patients": 1,
+      "total_entries": 2,
+      "assigned_pages": 8,
+      "unassigned_pages": 2,
+      "average_confidence": 0.95,
+      "processing_time_seconds": 3.892287015914917
+    },
+    "Qwen_2_5_7B_Instruct_Patient": {
+      "result_file": "Qwen_2_5_7B_Instruct_Patient_20251126_112945.json",
+      "total_patients": 1,
+      "total_entries": 1,
+      "assigned_pages": 8,
+      "unassigned_pages": 2,
+      "average_confidence": 0.98,
+      "processing_time_seconds": 6.770333528518677
+    }
+  },
+  "patient_count_agreement": {
+    "consensus_patients": 1,
+    "max_patients": 1,
+    "min_patients": 1,
+    "agreement_percentage": 100.0
+  },
+  "page_assignment_differences": [],
+  "summary_statistics": {
+    "average_patients_per_algorithm": 1.0,
+    "average_entries_per_algorithm": 1.5,
+    "average_processing_time": 5.331310272216797,
+    "average_confidence_across_algorithms": 0.965,
+    "processing_time_variance": 2.8780465126037598
+  }
+}

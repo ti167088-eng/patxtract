@@ -1,0 +1,106 @@
+{
+  "extraction_info": {
+    "pdf_path": "C:\\Users\\pc\\Desktop\\data\\medrec sample data\\140.pdf",
+    "pdf_name": "140.pdf",
+    "extraction_timestamp": "2025-11-25T19:08:33.691893",
+    "extraction_method": "ocr",
+    "total_pages": 10,
+    "total_characters": 16155,
+    "overall_confidence": 91.03859000900673,
+    "processing_time": 216.7563395500183,
+    "successful_pages": 10,
+    "extraction_success_rate": 1.0
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "mewn\nOSF\nPeUs\nHEALTHCARE\nOsF Medical Group - Falrbury\n106 S. First St. Fairbury, IL 61739\nPhone: (815)692-2308\nFax: (815)692-3278\nTo:\nFROM:\nPHONE:\nPAGES:\n41\ntotal\n7/20/23\nFAX:\nm\n8606-713-2975\nDATE:\nRE:\nCC:\nPlease Reply\nPlease Recycle\nJUrgent\nFor Review\nPlease Comment\nAclt : 10005\nPlease note: The information contained in this facsimile message is privileged and confidential and intended for the use\nof the addressee listed above only. If you are neither the intended recipient, or the employee or agent responsible for\ndelivering this informatlon to the intended reciplent, you are hereby notified that any disclosure, dupllcation, distribution,\nor action taken with the contents of this tele copied informatlon is strictly prohibited.\nIf you have received this copy in error, please notify the sender noted above.",
+      "text_length": 817,
+      "confidence": 86.54404212446774,
+      "processing_time": 16.26093554496765,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0001.png",
+      "success": true
+    },
+    {
+      "page_number": 2,
+      "text": "PE 1\n7/20/23 17:20 18159455311\nDoctori Noe this cover Sheat as Your gover sheet when Returnino cmns\nI\nx\nTO: Kahle MD, Kelly\nPhone: (815)945-2261\nFAX: (815)945-5311\nOsF Healthcare System dbm Osf Home Me\nRE: Account 10005\n5405 N Knoxville Ave\nSulte 300\nPeoria, Il 61614-5016\nFROm: Documentstion Representative\nPhone: (309)655-3440\nFAX: (866)713-2995\nDATE: 7/20/2023\nPages (including cover): 3\nComments:\nPlease have Dr fill out , slgn & data, Pleabe fax back to us\nThank you & Have a Blessed day\nDoctor: Please Reuse this cover Shaet when returning written orobrs\nPa c a     p  TN C  S  U U  MON E\nabove ONLY. If yeu are nelther the intended recipient, the employee, nor the agent responslbla tor dellvering thle Infornatlon to the intended\nreciplent, you are hereby notifled that any dleclonure, duplioaton, disiributon, or actlon takar with the contente of thls telecopled information (s\nStRictLY pRohieitab. If you have received this copy in error, plaase nouty the sendor noted above,\n′",
+      "text_length": 987,
+      "confidence": 90.71708420912424,
+      "processing_time": 14.983641386032104,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0002.png",
+      "success": true
+    },
+    {
+      "page_number": 3,
+      "text": "Pg 2\n07/20/23 17:20 18168485311\n\"\nConfirmation of Order\nPROVIDERr OSF Healthcare System dba OSF. Home Madical\nPatient: Aaroh, Brian O\n41 METZ LN\nE4bbpr Knoxville Ava Sulto 300\nFaiRBury, I1lnols 61739-9565\nPeorla, Illnols 51614-5016\nPhong\n(815)674-5563\nPhong\n(309)655-3440\nDOB\n05/02/1955\nFAX\n(865)713-2995\nPollcy\n1HR0J83DE45\nDOCID:1|5325(3260715\nPHYSICIAN: Kelly Kahle\nInitial Date\n07/11/2023\n918 Lincoln Ave\nRevised Date\nRecartiflcation\nChenoa, Illnols 61726\nLength of Need 12\nLloanra # Mds7672\nNPI 1346601259\n(in months)\nPhone\n(815)945-2261.\nPax (815)945-5311\nPrognoalx\nGood\nDiagnosis\nICD-IO Code\nDesoription\nC15.5\nMallgnan't neoplasm of lower third of esophagus\nEquipmant/services\ntim.\nQty\nProc. Code Item Name/Narrative\n1\nE0600\nSuctlon Machine Generie\n.1\nA7000\nSuction Ganister 2 per month\n2\nA4628\nSuction Yankauer Open Tip 12 por yaer\n1\nA7002\nSuctlon Tubing 5ft 2 por month\n1\nA7002\nSuctlon Tubing 4 inch 2 per month\n7721/22\nSighaturet\nDatel\nA\nPage 1\nof 1\n1|6325|3268715",
+      "text_length": 973,
+      "confidence": 91.12077561371467,
+      "processing_time": 16.425655841827393,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0003.png",
+      "success": true
+    },
+    {
+      "page_number": 4,
+      "text": "P8\n07/20/23 17:20 18159455311\nOsp Hgaithcare System dba Osp Home Medical\nSrodrntKnoxvile Ave\nOSF HEALTHCARE\nPeoria, IL 61614-5016\nPhonu: (309)655-3440\nFax: (855)713-2995\n7\nConfirmation of Order\n'\n-\nDatel\n.7/20/2023 12:00:00 AM\nPatlent:\nAaron, Brian D\nI\nKelly Kahte\n.\nHICN:\n1HR0J83DE45\n918 lincoln Ave\n-\nChonoa, IL 61726\n1\n7\nPhone: (815)945-2261\nPax: (815)945-5311\nEquipment/Services:\n80500\nSuction Machine Generle\nA7000\nSuction Canister 2 per month\nF\nA4624\nSuctlon Yankawer Opun Tip 12 par Yeor\nA7002\nSucton Tubing 6ft\"2 par month\nA7002\nSuctlon Tubing 4 Inch 2 per morth\nL\n+\nDear Physlclan,\nThe foflowing infortration was provided to our ofice as part of the order intake process, Please gontirm that the\ninfortmation Is dorteot. If the Informatton is corteat it needs to be Inserted Into the atlaghed, Wnitten Order forrr. Any\nchanges or dorreotlons should also be Inserted Into tho attaohed form. Once all sections of the Written Order are\nI\ncompleted, please slgn, deito and mall the form baok to our office.\nThank you.\nInfarmation Provided by the Physlelan's Office:\nAnswerst\nDlaghosis of Patlent?\nICD-1D Code\nC15.s\nMallgnant neoplasm of lower third O\nEstirmated Length of Need? 1-99 (99 Lifetime)\n(dood ε 'dled Z pop = I )Juejed j0 esoubold\n1\n16325|3268715",
+      "text_length": 1261,
+      "confidence": 80.86845526291478,
+      "processing_time": 18.065120458602905,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0004.png",
+      "success": true
+    },
+    {
+      "page_number": 5,
+      "text": "Order PAP Therapy\nPROVIDER:\nOSF St Francis Inc\nPATIENT: Aaron, Brian D\n1800 N Knoxville Ave Suite 104\nPeoria, IL 616033028\n41 Metz Ln\nPhone\nFairbury, IL 61739\n(309) 655-3440\nFAX\nPhone\n(815) 692-2505\n(866) 713-2995\nDOB\nProvider No.\n05/02/1955\nInitial Date\nPHYSICIAN: Venkata\n07/08/2015\nDodda MD\nRevised Date\n1505 Eastland Dr Ste 320\nRecertification\nBloomington, IL 61701\nLength of Need\n99\nUPIN\nNPI 1013194042\n(in months)\nPhone (309) 661-2368 F\nFax (309) 662-9709\nPolicy\nU43784700\nDIAGNOSIS\nICD-9 Code\nDescription\n327.23\nObstructive sleep apnea (adult) (pediatric)\n9-18-5\nEQUIPMENT/SERVICES\nQty\nProc. Code\nItem Name/Narrative\n1\nE0601\nCPAP Resmed S10 Auto\n1\nA4604\nTubing Heated Resm S10 AIr 1 per 3 months\n1\nA7038\nFilter Dispos PAP Resm S9 / S10 2 per month\n1\nE0562\nHumid Heated Billing Code\nT\nA7034\nMask Pillow Resm Airfit P-10 1 per 3 months\nT\nA7035\nHeadgear 1 per 6 months\nT\nA7036\nChin Strap Respironics Deluxe 1 per 6 months\n1\nA7039\nFilter Non Dispos PAP Resp M-Ser 1 per 6 months\nT\nA7046\nPap Humidifier Chamber Generic 1 per 6 months\n2\nA7033\nCushion Pillow PB Breeze LG 2 per month\n2\nA7032\nCushion Nasal Resp Wisp LG 2 per month\n2\nA7029\nCushion Pillow FP Opus MED 2 per month\n2\nA7028\nCushion Oral Resm Liberty Mouth LG 2 per month\n1\nA7031\nCushion FF Resp ComfortGel LG 1 per month\nT\nA7030\nMask FF 1 per 3 months\nT\nA7037\nPap Tubing Generic 1 per 3 months\nADDITIONAL MEDICAL INFORMATION\nLength of Need:\nEquipment: 99 months (Lifetime)\nSupplies:\n12 months\n99\n12\nstudy? YES / NO\nIf Yes, Date of Visit:\nRanganodl f\na 16/15\nPhysician Signature\nDate\nPage 1 of 2\nContinued on next page\n1|6325|505423",
+      "text_length": 1593,
+      "confidence": 94.54700208462037,
+      "processing_time": 20.95972967147827,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0005.png",
+      "success": true
+    },
+    {
+      "page_number": 6,
+      "text": "OSF\nRESPIRATORY EQUIPMENT CHECK\nCheck\nExchange\nSet Up\n9.9-14\nHome MediCal\nDate\nJENNIFER RRT\nPST/CSR/RCP Name:\nEQUIPMENT\nBRAN. D. AARON\nPatient:\nWere tanks stored properly?\nYes\nNo\nAPNEA MONITOR\nIf no, Safe tank storage addressed?\nYes\nNo\nMfc.\nModel\nYes\nNo\nSerial Number\nHas patient fallen since last visit?\nTachy.\nBrady.\nIs there a functioning smoke alarm?\nNo\nApnea\nSelf Test: □OK\nNo\nNA\nSafety recommendations reviewed?\nYes\nNEBULIZER\nCONCENTRATOR\nMfc.\nMfc.\nModel\nSerial Number\nSerial Number\nFilter:\nOK\nReplaced\nHours\nFunction:\nOK\nQ2\n1pm\nCabinet Filter:OK\nCleaned\nReplaced\nSUCTION (Stationary)\nInternal Filter:OK\nReplaced\nMfc.\nPatient reminded\nchange cannula every 2 weeks\nto\nSerial Number\nPatient\ninstructed\nchange\ne tubing every 90 days\nto\nFilter:\n□OK\nReplaced\nLiter flow checked\nd with\na\nliter meter\nFunction:\nOK\nDisconnect\nt alarm checked\nSUCTION (Portable)\nO2\nsmoking signs\nMfc.\nAdditional O2 rack given\nSerial Number\nCYLINDERS\nFilter:\nOK\nReplaced\nE\nD\nB\nOther\nNumber of:\nH\nFunction:\nOK\nBack-up Cylinder PSI\n Home Fill Tank Hydrotest Dates\nCPAP/RAD-No Rate/RAD with Rate (NPPV)\nMfc. K\n.\n9\nModel VPA ST-A\nAIR COMPRESSOR\nSerial Number\n221410874601\nModel\nMfc.\nIPAP:\n8\nEPAP:\nRate: 12\nSerial Number\nHours:\nEPR\nRamp Start 4 CmH20\nCleaned□\nReplaced\nFilter:\nC\nOK\nFi02 :\n2\nor\n1pm, or □ NA\nFunction: □ OK\nPatient Interface:\nX\nOK\nReplaced\nFilter:\nXOK\nReplaced\nOXIMETER\nModel\nFunction:\nOK\nMfc.\nSerial Number\n: □OK\nSelf Test:\nOK\nHUMIDIFIER HEATER\n□NA\nOximeter Probe:\n.\nMfc. RoMED\nt5\nHigh HR\nLow SpO2\nLow HR\nSerial Number\n23121479512\nFunction:\nX\nOK\nOTHER\nEquipment:\nSerial Number\nOK\nFunction:\nIf any changes are noted, complete a Plan of Care Update.\nPaticont sgnaure Bi D. Ahwr",
+      "text_length": 1665,
+      "confidence": 91.10931856067556,
+      "processing_time": 26.906912565231323,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0006.png",
+      "success": true
+    },
+    {
+      "page_number": 7,
+      "text": "PATIENT/CAREGIVER INSTRUCTION:\nOSF\nHMES\nSAFETY CHECKLIST\nHome CAre SErviCES\nBRIAN\n9-9-14\nPatient Name:\nD\nAARON\nDate:\nInstructions given to:\nPATIBNT\nYES\nNO\nN/A\n1.\nDefines the purpose of equipment delivered.\n2.\nUnderstands the prescribed treatment.\n3.\nUnderstands\nproper storage and cleaning maintenance.\n4.\nUnderstands\nsafe\nof\nequipment.\nuse\nV PAPST.AUmiDIFIBqipment).\n5.\nUnderstands\nthe\npurpose\nof\nthe\nHome Medical Equipment during normal business hours.\n6.\nUnderstands\nhow\nto contact\n7.\nUnderstands\nHome Medical\nEquipment\nt after\nhours.\nhow\nto\ncontact\nll\n8.\nUnderstands\nand\nd order\nsupplies to avoid\ne or running short.\nv to manage\nwaste\nhow\n9.\nbe sent UPS delivery by\nllig in\ntheir request.\nUnderstands\ntheir supplies can\nYES NO N/A\n1.\nUnderstands\nhow\n to decrease risk of falls in the home.\n2.\nPatient is a\nYes\nNo\nRisk:\nCheck one:\n Perceived\n Stated\nFall\nimportance of a functioning\n3.\nUnderstands\nfire alarm.\nthe i\nUnderstands\ntroubleshoot equipment.\nhow\nto\nthe equipment owner's manual provided on set-up.\n5.\nUnderstands\nhow\nto\nuse\nUnderstands\ny and where to locate it in the owner's manual.\n6.\nthe\nequipment\nt warranty\n is in a\n7.\nUnderstands\nequipment rental\nprocess\ns and\nthe\nagreement.\nUnderstands\ntheir\nwith\npurchased equipment.\n8.\nresponsibility\nUnderstands\nrespond to alarms (if applicable) and when to call the HME company.\n9.\nhow\nto\n10.\nUnderstands\nhow\noxygen safely.\nto\nuse\nthe\nstorage of oxygen tanks.\n11.\nUnderstands\nproper\nIllinois\nPremise Alert Act and the importance of notifying First\nUnderstands\nthe\n12.\nfOxygen\nthe\nhome.\nResponders\nof\nin\nRisk\nFactors and agrees to comply with recommendations.\nOxygen\n13. Understands\nto check tubing for kinks or cracks.\ns how\n14. Understands\nv to check humidifier bottle for crossthreading.\n15. Understands how\n16. Understands not to change oxygen flow rate without talking to doctor or nurse first.\nLPM w/activity;\nNOC; w/CPAP/BiPAP\nCmH,\nLPM\nI Cont/at rest;\n@\n17.RX\n\"\nNasal Cannula  High Flow Cannula\nMask\n(5 LPM or greater)\ndevice\nDelivery\nOxygen Order (2-4 LPM As Needed - PRN via\nHospice\nNasal Cannula).\n18.\nStanding\nb\nmedical records will be protected according to HIPAA Law.\n19. Understands\ns the\nGave Booklet\nAlready has Booklet\nRefused\n20. Received The Illinois\nPremise Alert Program information.\n21. Parent/caregiver infant CPR training completed\n o schedule for\n22. Understands complaint process and how\nto contact The Joint Commission.\nSao\nD.\nBuin\nCaregiver or Legal Guardian Signature\nPatient,Sighature\nDate\n89/4\nPrinted Name & Relationship of Person above\nRTST/CSR Signature\nRepresentative's Address\nDate\nMedical Forms Mgt., Inc.\nPatient unable to sign due to:\nwww.medforme.com",
+      "text_length": 2647,
+      "confidence": 94.31235580450267,
+      "processing_time": 28.871866703033447,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0007.png",
+      "success": true
+    },
+    {
+      "page_number": 8,
+      "text": "OSF\nHOME CARE SERVICES\nCONSENT/AUTHORIZATION\nPatient Name: Brian D. Aaron\nomission when following the instructions of the said physician.\nASSIGNMENT OF BENEFITS/FINANCIAL RESPONSIBILITY\nEquipment all\nOSF I\nHome\nand\n(c)\nMedical\nEquipment\nF Home\nfor\nto\nme\npertaining\ninformation pertaining\ninsurance benefits and status of claims submitted by OSF\nall\ninformation\ng to my\nany\nand\nto\nMedical\nEquipment\nby\nOSF\nHome\ny exist for products and services provided\nbilled, in\nof\ncharges \nthan\n100%\nbenefit determination.\nWhile insurance coverage may\nmay\nbe\nless\ny be covered, or that reimbursement\nincluding all\nowing\nmy\naccount,\nbalance\non\nhas\naccepted\naccordance with my\ncoverage. Therefore, I agree to be financially responsible for any\nEquipment\nOSF\nHome\nMedical\nif (a)\nno\npayment\nIn addition, I agree, unless I am a Medicare recipient and\nMedical\nEquipment\ncopayments and deductibles.\nHome \nclaim, or (b)my\nrecipient, to immediately pay the full amount due to OSF\nsubmits\na\nassignment or I a\nam a Medicaid r\nEquipment\nHome Medical\nEquipment within 30 days from the date OSF I\nto\ntransfer\nis received by\ny OSF\nMedical\nthe\nclaim.\n-\nagree\nHome\nnecessary to submit\nMedical I\nEquipment with information\nby\nOSF\nHome\nfail\nOSF\nHome\nphysician\nto\nservices\nprovided\nn or I\nprovide\nfor products and\npayment made directly to me\nEquipment\nt any\nMedical\nof my\nbenefits from Medicare\nimmediately\nto\nOSF\nHome\nto accept assignment\nOSF\nHome\n Medical Equipment decline\nMedical Equipment.\n. I agree that\nshould\nthat\nfinance charges can be billed\ne to OSF Home Medical Equipment.\nI understand\nfull\namount\ndue\nany\nother payor, I will\npay the\nor\nfor unpaid balances older than 30\ndays.\nRELEASE OF INFORMATION\nof my records by OSF Home Medical\nfurther\nconsent to the release/review \nmy medical history, services rendered,\nor\ntreatment.\n/\nprivate\ninsurance\nmy\nregulatory bodies, accrediting bodies and/or\nof\nfederal/state\nEquipment to authorized representatives\nrequesting my\nthe\nindividual/agency\nMedical Equipment\nt to\nallow t\nrequest\nOSF\nHome I\nand\nthe\nrelease of my\ncompany(ies).\n. Specifically, I a\nauthorize\nlegal\nright\nto\nrefuse\nthat\nI\nhave\nthe\nmedical\nrecords.\nunderstand\nand\nright\nby\nsigning this\nrecords\nto\nexamine/review\nmy\npersonal\nwaiving\nthis\nlegal\nEquipment\nt and\nthat\nI\nam\nOSF\nHome\nMedical\nheld\nby\nreview\nmy records\npersonal\nand\nmedical records\nnow\nrequesting\nto\nrthe\nindividual/agency\nof time is necessary for\nwhatever\nperiod\nThis consent will\nbe\nvalid\nfor\nconsent.\nhave a prospective effect only.\nwriting.\nSuch a revocation of the consent will\nin\nto fulfill their purpose, or until I revoke this consent\nSUPPLIES AND EQUIPMENT\nI understand that drugs, enteral products and supplies provided to me may not be returned. I agree not to remove or alter any\nenton  temen    tm  tn     e  ent o \nequipment and will be\nOSF\nHome Medical\nCERTIFICATION/RIGHTS AND RESPONSIBILITIES\npn   p        .     R\nResponsibilities and Medicare Supplier Standards (if appropriate). I have received a copy for my records, and understand my\nobligations for care at home and the services that I should expect from OSF Home Medical Equipment.\nAmson\nXBu0\nResponsible Party Signature (Relationship)\nPatient Signature\nMhardOi\n9-9-14\nDate\nWitness Signature\nRvsd 10/13",
+      "text_length": 3222,
+      "confidence": 97.29985344917216,
+      "processing_time": 32.05719184875488,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0008.png",
+      "success": true
+    },
+    {
+      "page_number": 9,
+      "text": "SF\nHome Medical Equipment\nBRIAN D. AAZON\nMr.Mrs.:\nCGNA\nguidelines below. Your insurance\nrequires the following:\n10,9114\nat: PONTAC\nX\nCome in for download on your scheduled date of:\nPlease bring your data card for this appointment.\n% compliance = \nD\nhours per night over a \nat\nDownload must prove\nday(s) period of time.\n9114to 10\n18114.\nYour date range is:\nIf physician follow-up is scheduled, when is your follow-up date?\nW\n*For insurance payers that require a face-to-face re-evaluation by the treating\nand adhering to PAP therapy as ordered. OSF Home Medical will obtain this\ndocumentation from your physician. Please bring this letter to your follow-up visit as a\nreminder of these requirements.\nHave treating physician fill out Illinois Medicaid questionnaire.\n(120 days). This\nPlease have them fax back to (309) 655-3447 by:\nquestionnaire will be faxed to your physician by OSF Home Medical Equipment.\nIf my insurance company allows purchase of my PAP therapy device upon providing\ncompliance, I authorize OSF Home Medical Equipment to bill my insurance for the\n(initial)\npurchase of the device. (Deductibles or out-of-pocket expenses may apply.)\nI understand that I must follow my insurance provider 's criteria in order for them to consider\npayment. If I fail to do so, I also understand that I may be financially responsible for equipment\nif I do not comply. I also understand that if my health plan does not publish coverage criteria, I\nam being asked to meet Medicare's coverage criteria for compliance.\nDason\n9-9-14\nXBui~ D.\nDate\n/Patient Signature\nORIGINAL - OSF HME • COPY - PATIENT\nCPAP Compliance Letter\nH0190-10000-12-0164\nRev. 02/14",
+      "text_length": 1649,
+      "confidence": 88.49035185575485,
+      "processing_time": 19.370078086853027,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0009.png",
+      "success": true
+    },
+    {
+      "page_number": 10,
+      "text": "OSF\nHome MediCal EquipmenT\nToll-Free 1-877-795-0416\n1800 N Knoxville\n2200 E Washington St\n435 Maxine Dr\n5668 E State St\n3405 N Seminary St\n608 N Ladd St\n125 N Tremont St\nSuite 104\nBloomington IL 61701\nSuite 7\nSuite 1100\nGalesburg IL 61401\nPontiac IL 61764\nKewanee IL 61443\nPeoria IL 61603\n309-665-4765\nMorton IL 61550\nRockford IL 61108\n309-341-3181\n815-844-4909\n309-854-6590\n309-655-3440\n309-284-2240\n815-227-2079\nSales, Service, and Rental Agreement\nDELIVERY TICKET For Brian D. Aaron\n583064\nServicing Branch:\nPeoria, IL 6160\nFrom 09/22/2014 To 09/22/2014 Delivered 09/22/2014 Rx HME Resp\nPayor AME- Cigna - State\nDELIVER TO\nBrian D. Aaron\n(H) 815-692-2505\nPHYSICIAN\nVenkata Dodda, MD\n41 Metz Lane\n(C)815-674-5563\nPHONE\n309-661-2368\nFairbury, IL 61739\n(W)\nPCG\nCharlene Aaron\n815-692-2505\n815-692-2505\nDELIVERY\nO2 @ 2lpm bled into bipap w/sleep - PLEASE EXCHANGE O2 CON, IT IS VERY\nINSTRUCTIONS\nNOISY AND KEEPING THE\nPATIENT AWAKE AT NIGHT\n9/23\nBIll\nExt.\nCategory\nDelivery Item\nQty\nPrice\nPrice\ntental Equlpment\n4\nINVCARE\n03B6931656\n—AKE525DS\nO2 ConcentratorDeviibiss SN:\n10B1\n392.00\n392.00\nO2 Concentrator\nF637071P5\nPickup\nDevilibiss SN:\n10B1\n-\nII\nTotals:\n$ 392.00\n9-23-14\nAanw\nDate\nRelationship to Patient\nPatientTor Parent/Guardian/Agent\nSignature\nby\nRepresentative's Name\nReason Patient Cannot Sign\nPatient's Name\nRepresentative's Address",
+      "text_length": 1341,
+      "confidence": 95.37666112512022,
+      "processing_time": 18.660287618637085,
+      "image_path": "C:\\Users\\pc\\AppData\\Local\\Temp\\patxtract_pdf_ocr_6o0910q5\\page_0010.png",
+      "success": true
+    }
+  ]
+}
